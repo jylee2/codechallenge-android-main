@@ -1,3 +1,5 @@
+package com.sonder.domain.usecases.search
+
 import com.sonder.domain.models.SearchSectionResult
 import com.sonder.domain.repositories.SearchRepository
 import kotlinx.coroutines.flow.Flow

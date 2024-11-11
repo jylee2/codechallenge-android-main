@@ -15,7 +15,7 @@ object RepositoryModule {
     @Provides
     @Singleton
     fun provideSearchRepository(): SearchRepository {
-        return SearchRepositoryImpl()
+        return SearchRepositoryImpl(DataModule.provideSearchMockDataSource())
     }
 
 }

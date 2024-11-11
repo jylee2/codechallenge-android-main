@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -23,5 +25,12 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.material)
     implementation(project(":domain"))
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
     testImplementation(libs.junit)
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
