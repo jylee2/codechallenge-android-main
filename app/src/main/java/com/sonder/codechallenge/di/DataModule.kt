@@ -1,8 +1,8 @@
 package com.sonder.codechallenge.di
 
+import com.sonder.data.MockResponses
+import com.sonder.data.SearchMockDataSourceImpl
 import com.sonder.domain.data.SearchMockDataSource
-import com.sonder.domain.repositories.SearchRepository
-import com.sonder.domain.repositories.SearchRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,12 +11,10 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RepositoryModule {
+object DataModule {
     @Provides
     @Singleton
-    fun provideSearchRepository(
-        mockDataSource: SearchMockDataSource
-    ): SearchRepository {
-        return SearchRepositoryImpl(mockDataSource)
+    fun provideSearchMockDataSource(): SearchMockDataSource {
+        return SearchMockDataSourceImpl(MockResponses)
     }
-}
+} 
